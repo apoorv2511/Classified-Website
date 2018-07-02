@@ -1,0 +1,46 @@
+
+<%include header%>
+
+	<div class="main-banner banner text-center">
+	  <div class="container">    
+			<h1>Sell or Advertise   <span class="segment-heading">    anything online </span> with Resale</h1>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+			<a href="/postAd">Post Free Ad</a>
+	  </div>
+	</div>
+
+		<div class="content">
+			<div class="categories">
+				<div class="container">
+
+					<% for(i=0; i<subCategories.length; i++) { %>
+
+					<div class="col-md-2">
+      					<div class="thumbnail">
+        					<a href="/api/subCategory?subCategory=<%= subCategories[i].categoryName %>" target="_blank">
+          						<img src="../uploads/subCategory/<%=subCategories[i].fileName%>" alt="Lights" style="width:100%">
+          						<div class="caption">
+            						<h3 align="center"><%= subCategories[i].subCategoryName %></h3>
+          						</div>
+        					</a>
+      					</div>
+    				</div>
+
+					<% } %>
+
+
+
+					<div class="clearfix"></div>
+				</div>
+			</div>
+
+		</div>
+
+<hr style = "border-color:"black"; ">
+
+<%include footer%>
+
+
+</body>
+
+</html>

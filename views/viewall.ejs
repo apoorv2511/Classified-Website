@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>My Account</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-select.css">
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->	
+<!-- js -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<!-- js -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-select.js"></script>
+<script>
+  $(document).ready(function () {
+    var mySelect = $('#first-disabled2');
+
+    $('#special').on('click', function () {
+      mySelect.find('option:selected').prop('disabled', true);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#special2').on('click', function () {
+      mySelect.find('option:disabled').prop('disabled', false);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#basic2').selectpicker({
+      liveSearch: true,
+      maxOptions: 1
+    });
+  });
+</script>
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+<link href="../css/jquery.uls.css" rel="stylesheet"/>
+<link href="../css/jquery.uls.grid.css" rel="stylesheet"/>
+<link href="../css/jquery.uls.lcd.css" rel="stylesheet"/>
+<!-- Source -->
+<script src="../js/jquery.uls.data.js"></script>
+<script src="../js/jquery.uls.data.utils.js"></script>
+<script src="../js/jquery.uls.lcd.js"></script>
+<script src="../js/jquery.uls.languagefilter.js"></script>
+<script src="../js/jquery.uls.regionfilter.js"></script>
+<script src="../js/jquery.uls.core.js"></script>
+
+</head>
+
+<script src='../../../../../ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+
+<script async type='text/javascript' src='../../../../../cdn.fancybar.net/ac/fancybar6a2f.js?zoneid=1502&amp;serve=C6ADVKE&amp;placement=w3layouts' id='_fancybar_js'>
+</script>
+
+
+<body>
+
+<!--Header-->
+<div class="header">
+		<div class="container">
+    <div class="logo">
+      <a href="/"><span><%= user.name %>'s</span> Account</a>
+    </div>
+      <div class="header-right">
+        <a class="account" href="/admin/viewall">Manage Accounts</a>
+      </div>
+      <div class="header-right">
+          <a class="account" href="/admin/addCategory">Add Categories</a>
+      </div>
+      <div class="header-right">
+        <a class="account" href="/admin/addSubCategory">Add Sub-Categories</a>
+      </div>
+    <div class="header-right">
+      <a class="account" href="/admin/logout">Logout</a>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <% for(i=0; i < users.length; i++) { %>
+    <tbody>
+      <tr>
+        <td><%= users[i].name %></td>
+        <td><%= users[i].email %></td>
+        <td><a href = '/deleteOne/?email=<%= users[i].email %>'><button class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-trash"></span></button></a></td>
+      </tr>
+    </tbody>
+    <% } %>
+  </table>
+</div>
+<!---->

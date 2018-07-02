@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Resale a Business Category Flat Bootstrap Responsive Website Template | Post Ad :: w3layouts</title>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-select.css">
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!--//fonts-->	
+<!-- js -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<!-- js -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-select.js"></script>
+<script>
+  $(document).ready(function () {
+    var mySelect = $('#first-disabled2');
+
+    $('#special').on('click', function () {
+      mySelect.find('option:selected').prop('disabled', true);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#special2').on('click', function () {
+      mySelect.find('option:disabled').prop('disabled', false);
+      mySelect.selectpicker('refresh');
+    });
+
+    $('#basic2').selectpicker({
+      liveSearch: true,
+      maxOptions: 1
+    });
+  });
+</script>
+<script type="text/javascript" src="../js/jquery.leanModal.min.js"></script>
+<link href="../css/jquery.uls.css" rel="stylesheet"/>
+<link href="../css/jquery.uls.grid.css" rel="stylesheet"/>
+<link href="../css/jquery.uls.lcd.css" rel="stylesheet"/>
+<!-- Source -->
+<script src="../js/jquery.uls.data.js"></script>
+<script src="../js/jquery.uls.data.utils.js"></script>
+<script src="../js/jquery.uls.lcd.js"></script>
+<script src="../js/jquery.uls.core.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/easy-responsive-tabs.css" />
+<script src="js/easyResponsiveTabs.js"></script>
+</head>
+
+
+<script async type='text/javascript' src='../../../../../cdn.fancybar.net/ac/fancybar6a2f.js?zoneid=1502&amp;serve=C6ADVKE&amp;placement=w3layouts' id='_fancybar_js'></script>
+
+
+<body>
+<div class="header">
+	<div class="container">
+		<div class="logo">
+			<a href="/"><span><%= user.name %>'s</span> Account</a>
+		</div>
+	    <div class="header-right">
+	    	<a class="account" href="/admin/viewall">Manage Accounts</a>
+	    </div>
+	    <div class="header-right">
+	      	<a class="account" href="/admin/addCategory">Add Categories</a>
+	    </div>
+	    <div class="header-right">
+	   		<a class="account" href="/admin/addSubCategory">Add Sub-Categories</a>
+	    </div>
+		<div class="header-right">
+			<a class="account" href="/admin/logout">Logout</a>
+		</div>
+	</div>
+</div>
+	
+	<div class="alert alert-success">
+		<% if(message.length > 0) { %>
+  		<strong>Success!</strong> <%= message %>
+  		<% } %>
+	</div>
+	
+	<!-- Submit Ad -->
+	<div class="submit-ad main-grid-border">
+		<div class="container">
+			<h2 class="head">Add Sub-Category</h2>
+			<div class="post-ad-form">
+				<form action="/admin/addSubCategory" method="POST" enctype="multipart/form-data">
+					
+					<label>Select Category <span>*</span></label>
+					<select class="" name="categoryName" placeholder="choose Sub-Category">
+						<option>Pick one</option>
+						<% for(i=0; i<categories.length; i++) { %>
+					  		<option><%= categories[i].name %></option>
+					  	<% } %>
+					</select>
+
+					<div class="clearfix"></div>
+					<label>Sub-Category Name <span>*</span></label>
+					<input name="subCategoryName" type="text" class="phone" placeholder="">
+					<div class="clearfix"></div>
+				
+					<div class="upload-ad-photos">
+						<label>Photo for your Sub-Category :</label>	
+						<div class="photos-upload-view">
+
+								<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+
+								<div>
+									<input type="file" id="fileselect" name="myfile" />
+									<div id="filedrag">or drop files here</div>
+								</div>
+
+							<div id="messages">
+								<p>Status Messages</p>
+							</div>
+
+							<input type="submit" value="Post">
+						</div>
+						<div class="clearfix"></div>
+						<script src="../js/filedrag.js"></script>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+				
+	<!-- // Submit Ad -->
+	<!--footer section start-->		
+		<footer>	
+			<div class="footer-bottom text-center">
+				<div class="container">
+					<div class="footer-logo">
+						<a href="index-2.html"><span>Re</span>sale</a>
+					</div>
+					<div class="footer-social-icons">
+						<ul>
+							<li><a class="facebook" href="#"><span>Facebook</span></a></li>
+							<li><a class="twitter" href="#"><span>Twitter</span></a></li>
+						</ul>
+					</div>
+					<div class="copyrights">
+						<p> © 2018 Resale. All Rights Reserved </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</footer>
+    <!--footer section end-->
+</body>
+
+</html>
